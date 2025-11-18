@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f0f2f5;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .container { 
+            width: 100%; 
+            max-width: 500px; 
+            padding: 2rem; 
+            border: 2px solid #333; 
+            border-radius: 10px; 
+            background-color: #ffffff; 
+        }
+        .container h1 { font-size: 1.5rem; margin-top: 0; margin-bottom: 1.5rem; color: #333; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #555; }
+        .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .btn-book { width: 100%; background-color: #28a745; color: white; padding: 0.75rem; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        .btn-book:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Appointment</h1>
+        <h3 style="margin-top:0; color:#666;">Dr. {{ doctor.full_name }}</h3>
+        <p>{{ doctor.department.name }}</p>
+
+        <form action="{{ url_for('patient.book_appointment', doctor_id=doctor.id) }}" method="POST">
+            <div class="form-group">
+                <label for="date">Select Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time_slot">Select Time Slot</label>
+                <select name="time_slot" id="time_slot" required>
+                    <option value="09:00 AM - 10:00 AM">09:00 AM - 10:00 AM</option>
+                    <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                    <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                    <option value="04:00 PM - 05:00 PM">04:00 PM - 05:00 PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-book">Confirm Booking</button>
+        </form>
+    </div>
+</body>
+</html>

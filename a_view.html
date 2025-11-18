@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .btn-back {
+            border: 2px solid #007bff;
+            background-color: #cce5ff;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .patient-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .patient-info p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #333;
+        }
+
+        .history-table th,
+        .history-table td {
+            border: 1px solid #333;
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .history-table thead {
+            background-color: #f8f9fa;
+        }
+
+        .history-table th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Patient History</h1>
+            <button class="btn-back">back</button>
+        </div>
+        
+        <div class="patient-info">
+            <p><strong>Patient Name:</strong> Mr. Kumar</p>
+            <p><strong>Doctors' Name:</strong> Dr. Sen</p>
+            <p><strong>Department:</strong> Cardiology</p>
+        </div>
+
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Visit No.</th>
+                    <th>Visit Type</th>
+                    <th>Tests Done</th>
+                    <th>Diagnosis</th>
+                    <th>Prescription</th>
+                    <th>Medicines</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>In-person</td>
+                    <td>ECG</td>
+                    <td>Abnormal Heartbeats</td>
+                    <td>exercise daily</td>
+                    <td>Medicine 1</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>In-person</td>
+                    <td>ECG</td>
+                    <td>Abnormal Heartbeats</td>
+                    <td>exercise daily</td>
+                    <td>Medicine 2</td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>In-person</td>
+                    <td>ECG</td>
+                    <td>normal Heartbeats</td>
+                    <td>cont. exercise</td>
+                    <td>Medicine 3</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

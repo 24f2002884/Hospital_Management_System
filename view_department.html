@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department: {{ department.name }}</title>
+    <style>
+        /* Reuse your existing styles */
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 2rem; min-height: 100vh; }
+        .container { width: 100%; max-width: 800px; background-color: #ffffff; border: 2px solid #333; border-radius: 10px; padding: 1.5rem; }
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border: 1px solid #aaa; border-radius: 5px; margin-bottom: 0.75rem; }
+        .btn-book { background-color: #d4edda; border: 1px solid #28a745; padding: 5px 10px; text-decoration: none; color: black; border-radius: 4px; }
+        .btn-view { background-color: #cce5ff; border: 1px solid #007bff; padding: 5px 10px; text-decoration: none; color: black; border-radius: 4px; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #333; margin-bottom:1.5rem;">
+            <h1>Department of {{ department.name }}</h1>
+            <a href="{{ url_for('patient.dashboard') }}" style="text-decoration:none; color:#333;">Back to Dashboard</a>
+        </div>
+
+        <section>
+            <h2>Doctors' List</h2>
+            {% if department.doctors %}
+                {% for doc in department.doctors %}
+                <div class="list-item">
+                    <span>Dr. {{ doc.full_name }} (Exp: {{ doc.experience_years }} yrs)</span>
+                    <div class="actions">
+                        <a href="{{ url_for('patient.book_appointment', doctor_id=doc.id) }}" class="btn-book">Book Appointment</a>
+                        <a href="{{ url_for('patient.doctor_profile', doctor_id=doc.id) }}" class="btn-view">View Profile</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No doctors found in this department.</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>
