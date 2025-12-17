@@ -1,4 +1,4 @@
-from application import create_app, setup_database
+from hospital_management.application import create_app, setup_database
 
 # Create the application instance
 app = create_app()
